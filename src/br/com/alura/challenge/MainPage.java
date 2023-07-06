@@ -25,6 +25,7 @@ public class MainPage {
 		frame.setTitle("Conversor");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel mainPanel = new JPanel();
@@ -67,11 +68,14 @@ public class MainPage {
 		});
 		button.addActionListener(e -> {	
 				String choice = (String) comboBox.getSelectedItem();
-				
+					
 				if (choice.equals("Conversor de Temperatura")) {
 					frame.dispose();
 					new TemperatureConverter();
-			}
+				} else {
+					frame.dispose();
+					new CurrencyConverter();
+				}
 		});
 		button.setBounds(157, 227, 132, 30);
 		mainPanel.add(button);

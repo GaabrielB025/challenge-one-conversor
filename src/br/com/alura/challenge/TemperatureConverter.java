@@ -19,7 +19,7 @@ import javax.swing.SwingConstants;
 public class TemperatureConverter {
 	JFrame frame = new JFrame();
 	private JTextField inputField = new JTextField();
-	private JTextField outputField = new JTextField(); 
+	private JTextField outputField = new JTextField();
 	
 	public TemperatureConverter() {
 		initialize();
@@ -31,6 +31,7 @@ public class TemperatureConverter {
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 450, 300);
+		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
