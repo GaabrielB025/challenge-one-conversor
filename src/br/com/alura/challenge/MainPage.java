@@ -13,8 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MainPage {
-	JFrame frame = new JFrame();
-	protected JButton button = new JButton("Converter");
+	protected JFrame frame = new JFrame();
 	
 	public MainPage() {
 		inicialize();
@@ -50,6 +49,7 @@ public class MainPage {
 		lblConversor.setBounds(150, 47, 158, 31);
 		mainPanel.add(lblConversor);
 		
+		JButton button = new JButton("Converter");
 		button.setFont(new Font("Dialog", Font.BOLD, 13));
 		button.setBackground(new Color(59, 89, 152));
 		button.setForeground(Color.WHITE);

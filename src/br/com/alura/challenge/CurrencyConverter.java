@@ -34,6 +34,7 @@ public class CurrencyConverter {
 		frame.setVisible(true);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setSize(650, 320);
+		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -99,7 +100,7 @@ public class CurrencyConverter {
 		btnConverter.setOpaque(true);
 		btnConverter.setBackground(new Color(59, 89, 152));
 		btnConverter.setForeground(Color.WHITE);
-		btnConverter.setBounds(252, 230, 132, 31);
+		btnConverter.setBounds(261, 230, 132, 31);
 		btnConverter.addMouseListener(new java.awt.event.MouseAdapter() {
 			 public void mouseEntered(java.awt.event.MouseEvent evt) {
 			        btnConverter.setBackground(new Color(89, 119, 182));
@@ -142,7 +143,7 @@ public class CurrencyConverter {
 		panel.add(btnLimpar);
 		
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(467, 230, 106, 31);
+		btnVoltar.setBounds(468, 230, 106, 31);
 		btnVoltar.setFont(new Font("Dialog", Font.BOLD, 15));
 		btnVoltar.setFocusPainted(false);
 		btnVoltar.setBorderPainted(false);
