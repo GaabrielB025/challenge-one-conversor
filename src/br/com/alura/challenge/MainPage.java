@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 public class MainPage {
 	JFrame frame = new JFrame();
-	JButton button = new JButton("Converter");
+	protected JButton button = new JButton("Converter");
 	
 	public MainPage() {
 		inicialize();

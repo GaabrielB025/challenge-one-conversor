@@ -7,25 +7,26 @@ import java.awt.Color;
 import java.awt.Cursor;
 
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.JComboBox;
-import javax.print.attribute.AttributeSet;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.DocumentFilter;
+
+import br.com.alura.challenge.util.CurrencyConverterUtil;
+
 import javax.swing.JButton;
 
 public class CurrencyConverter {
 	
 	private JFrame frame;
-	JTextField inputField;
-	JTextField outputField;
+	protected static JTextField inputField = new JTextField();
+	protected static JTextField outputField = new JTextField();
 
 	public CurrencyConverter() {
 		initialize();
 	}
-
 	
 	private void initialize() {
 		frame = new JFrame();
@@ -48,7 +49,7 @@ public class CurrencyConverter {
 		
 		JComboBox<String> boxInput = new JComboBox<>();
 		boxInput.setModel(new DefaultComboBoxModel<>(new String[] {"Real brasileiro", "Dólar americano", "Euro",
-				"Libras Esterlinas", "Peso argentino", "Peso chileno"}));
+				"Libra esterlina", "Peso argentino", "Peso chileno"}));
 		boxInput.setFont(new Font("Dialog", Font.BOLD, 18));
 		boxInput.setBackground(Color.WHITE);
 		boxInput.setForeground(Color.BLACK);
@@ -57,7 +58,7 @@ public class CurrencyConverter {
 		
 		JComboBox<String> boxOutput = new JComboBox<>();
 		boxOutput.setModel(new DefaultComboBoxModel<>(new String[] {"Dólar americano", "Real brasileiro", "Euro",
-				"Libras Esterlinas", "Peso argentino", "Peso chileno"}));
+				"Libra esterlina", "Peso argentino", "Peso chileno"}));
 		boxOutput.setFont(new Font("Dialog", Font.BOLD, 18));
 		boxOutput.setBackground(Color.WHITE);
 		boxOutput.setForeground(Color.BLACK);
@@ -69,7 +70,6 @@ public class CurrencyConverter {
 		label.setBounds(299, 115, 35, 24);
 		panel.add(label);
 		
-		inputField = new JTextField();
 		inputField.setFont(new Font("Dialog", Font.PLAIN, 19));
 		inputField.setForeground(Color.BLACK);
 		inputField.setBounds(36, 144, 211, 36);
@@ -81,11 +81,11 @@ public class CurrencyConverter {
 		lblNewLabel.setBounds(36, 46, 26, 24);
 		panel.add(lblNewLabel);
 		
-		outputField = new JTextField();
 		outputField.setEditable(false);
 		outputField.setBounds(393, 144, 211, 36);
+		outputField.setForeground(Color.BLACK);
+		outputField.setFont(new Font("Dialog", Font.PLAIN, 19));
 		panel.add(outputField);
-		outputField.setColumns(10);
 		
 		JLabel lblPara = new JLabel("Para:");
 		lblPara.setFont(new Font("Dialog", Font.BOLD, 15));
@@ -111,21 +111,68 @@ public class CurrencyConverter {
 			    }
 		});
 		btnConverter.addActionListener(e -> {
-			CurrencyUtilTest currencyUtil = new CurrencyUtilTest();
 			String input = (String) boxInput.getSelectedItem();
 			String output = (String) boxOutput.getSelectedItem();
-			frame.dispose();
 			
-			currencyUtil.show();
+			CurrencyConverterUtil.convertCurrency(input, output);
 		});
 		panel.add(btnConverter);
-	}
-
-	public JTextField getInputField() {
-		return inputField;
+		
+		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setBounds(75, 230, 106, 31);
+		btnLimpar.setFont(new Font("Dialog", Font.BOLD, 15));
+		btnLimpar.setFocusPainted(false);
+		btnLimpar.setBorderPainted(false);
+		btnLimpar.setOpaque(true);
+		btnLimpar.setBackground(new Color(59, 89, 152));
+		btnLimpar.setForeground(Color.WHITE);
+		btnLimpar.addMouseListener(new java.awt.event.MouseAdapter() {
+			 public void mouseEntered(java.awt.event.MouseEvent evt) {
+				 	btnLimpar.setBackground(new Color(89, 119, 182));
+				 	btnLimpar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			    }
+			    public void mouseExited(java.awt.event.MouseEvent evt) {
+			    	btnLimpar.setBackground(new Color(59, 89, 152));
+			    	btnLimpar.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			    }
+		});
+		btnLimpar.addActionListener(e -> {
+			clearFields();
+		});
+		panel.add(btnLimpar);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBounds(467, 230, 106, 31);
+		btnVoltar.setFont(new Font("Dialog", Font.BOLD, 15));
+		btnVoltar.setFocusPainted(false);
+		btnVoltar.setBorderPainted(false);
+		btnVoltar.setOpaque(true);
+		btnVoltar.setBackground(new Color(59, 89, 152));
+		btnVoltar.setForeground(Color.WHITE);
+		btnVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
+			 public void mouseEntered(java.awt.event.MouseEvent evt) {
+				 	btnVoltar.setBackground(new Color(89, 119, 182));
+				 	btnVoltar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			    }
+			    public void mouseExited(java.awt.event.MouseEvent evt) {
+			    	btnVoltar.setBackground(new Color(59, 89, 152));
+			    	btnVoltar.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			    }
+		});
+		btnVoltar.addActionListener(e -> {
+			frame.dispose();
+			MainPage launch = new MainPage();
+			launch.frame.setVisible(true);
+		});
+		panel.add(btnVoltar);
 	}
 	
-	public JTextField getOutputField() {
-		return outputField;
+	protected static double getCurrencyFromInputField() {
+		return Double.parseDouble(inputField.getText());
+	}
+	
+	private void clearFields() {
+		inputField.setText("");
+		outputField.setText("");
 	}
 }
