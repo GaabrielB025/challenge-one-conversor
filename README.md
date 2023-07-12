@@ -1,6 +1,6 @@
 <h1 align="center">CHALLENGE ONE - Conversor De Moedas</h1>
 <p align="center">
-  <img src="https://github.com/GaabrielB025/challenge-one-conversor/assets/109917480/5f83328a-d88c-43fc-9a04-3b575b65ea6e" />
+  <img src="https://github.com/GaabrielB025/challenge-one-conversor/assets/109917480/c3696272-ac50-4545-a5d5-2fe56c69aaf6" />
 </p>
 
 ## Descrição do Projeto
