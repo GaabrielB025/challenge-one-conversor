@@ -1,6 +1,10 @@
 <h1 align="center">CHALLENGE ONE - Conversor De Moedas</h1>
 <p align="center">
-  <img src="https://github.com/GaabrielB025/challenge-one-conversor/assets/109917480/c3696272-ac50-4545-a5d5-2fe56c69aaf6" />
+  <img src="https://github.com/GaabrielB025/challenge-one-conversor/assets/109917480/cff6bf0d-a12a-4019-84bf-68765f782102" />
+</p>
+<h2 align="center">Conversor de Temperatura</h2>
+<p align="center">
+  <img src="https://github.com/GaabrielB025/challenge-one-conversor/assets/109917480/7999a3d5-a755-4e7c-a5c6-52ef6d86b694" />
 </p>
 
 ## Descrição do Projeto
@@ -17,3 +21,6 @@ Lembrando que deve ser possível também converter de forma inversa ou seja:
 - Converter de Libras Esterlinas a Reais
 - Converter de Peso argentino a  Reais
 - Converter de Peso Chileno a Reais
+
+## Badge
+<img src="https://github.com/GaabrielB025/challenge-one-conversor/assets/109917480/46a485d3-5761-4f06-9c60-af7f801bb979" />
